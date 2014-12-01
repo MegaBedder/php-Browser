@@ -13,7 +13,7 @@ echo $browser->get_source();
 
 $defaults = array(
     'refferer' => 'https://www.google.com',
-    'useragent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10; rv:33.0) Gecko/20100101 Firefox/33.0',
+    'user_agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10; rv:33.0) Gecko/20100101 Firefox/33.0',
     'timeout' => 20,
     'cookie_file' => 'cookieee.txt'
 );
