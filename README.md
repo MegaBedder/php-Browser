@@ -21,10 +21,10 @@ echo $browser->get_source();
 | Name & Defaults | Description | 
 | ----------- | ----------- |
 | `set_refferer($refferer_url = null)` | Set refferer url. |
-| `set_useragent($useragent = "BotMaker/0.1...")` | Set user agent. |
+| `set_useragent($useragent = "Browser/0.1...")` | Set user agent. |
 | `set_timeout($timeout = 10)` | Set timeout. |
 | `auto_redirect($option = true)` | Auto redirect option. |
-| `cookie_file($filename = "/tmp/...")` | Cookie file. |
+| `cookie_file($filename = "/tmp/Browser.tmp")` | Cookie file. |
 | `cert_file($filename = "ca-bundle.crt")` | Bundle of certificates file. |
 | `post($data = null)` | Set post data. |
 | `save_to_file($filename = null)` | Save data to file. |
