@@ -21,7 +21,7 @@ echo $browser->get_source();
 | Name & Defaults | Description | 
 | ----------- | ----------- |
 | `set_refferer($refferer_url = null)` | Set refferer url. |
-| `set_useragent($useragent = "Browser/0.1...")` | Set user agent. |
+| `set_user_agent($useragent = "Browser/0.1...")` | Set user agent. |
 | `set_timeout($timeout = 10)` | Set timeout. |
 | `auto_redirect($option = true)` | Auto redirect option. |
 | `cookie_file($filename = "/tmp/Browser.tmp")` | Cookie file. |
