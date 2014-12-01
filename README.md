@@ -1,4 +1,4 @@
-php-Bot-Maker
+php-Browser
 =============
 
 Featured and simple HTTP request class.
