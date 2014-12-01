@@ -23,6 +23,7 @@ echo $browser->get_source();
 | `set_refferer($refferer_url = null)` | Set refferer url. |
 | `set_user_agent($useragent = "Browser/0.1...")` | Set user agent. |
 | `set_timeout($timeout = 10)` | Set timeout. |
+| `set_headers($headers = array())` | Set headers with array. |
 | `auto_redirect($option = true)` | Auto redirect option. |
 | `cookie_file($filename = "/tmp/Browser.tmp")` | Cookie file. |
 | `cert_file($filename = "ca-bundle.crt")` | Bundle of certificates file. |
@@ -43,7 +44,8 @@ $defaults = array(
     'user_agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10; rv:33.0) Gecko/20100101 Firefox/33.0',
     'timeout' => 20, 
     'cookie_file' => 'cookie.txt',
-    'cert_file' => '/example/path/ca-bundle.crt'
+    'cert_file' => '/example/path/ca-bundle.crt',
+    'headers' => array('Content-Type: application/x-www-form-urlencoded', 'Foo: Bar')
 );
 
 $browser = new Browser("https://example.dev/login.php", $defaults);

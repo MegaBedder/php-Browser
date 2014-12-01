@@ -27,7 +27,7 @@ class Browser {
     private $refferer = null;
     private $user_agent = "Browser/0.1 (http://github.com/iamdual/php-browser)";
     private $timeout = 10;
-    private $headers = null;
+    private $headers = array();
     private $auto_redirect = true;
     private $cookie_file = null;
     private $cert_file = null;
