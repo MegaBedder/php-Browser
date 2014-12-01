@@ -27,6 +27,7 @@ class Browser {
     private $refferer = null;
     private $user_agent = "Browser/0.1 (http://github.com/iamdual/php-browser)";
     private $timeout = 10;
+    private $headers = null;
     private $auto_redirect = true;
     private $cookie_file = null;
     private $cert_file = null;
@@ -43,6 +44,7 @@ class Browser {
             $this->refferer = (isset($defaults['refferer']) ? $defaults['refferer'] : null);
             $this->user_agent = (isset($defaults['user_agent']) ? $defaults['user_agent'] : null);
             $this->timeout = (isset($defaults['timeout']) ? $defaults['timeout'] : null);
+            $this->headers = (isset($defaults['headers']) ? $defaults['headers'] : null);
             $this->cookie_file = (isset($defaults['cookie_file']) ? $defaults['cookie_file'] : null);
             $this->cert_file = (isset($defaults['cert_file']) ? $defaults['cert_file'] : null);
         }
@@ -73,6 +75,10 @@ class Browser {
         $this->timeout = $timeout;
     }
 
+    public function set_headers($headers) {
+        $this->headers = $headers;
+    }
+
     public function auto_redirect($option) {
         $this->auto_redirect = ($option ===  false ? $option : true);
     }
@@ -101,6 +107,10 @@ class Browser {
 
         if ($this->refferer !== null) {
             curl_setopt($this->ch, CURLOPT_REFERER, $this->refferer);
+        }
+
+        if ($this->headers !== null) {
+            curl_setopt($this->ch, CURLOPT_HTTPHEADER, $this->headers);
         }
 
         if (is_file($this->cert_file)) {

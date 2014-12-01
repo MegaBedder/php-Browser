@@ -1,7 +1,6 @@
 <?php
 require("src/class.Browser.php");
 
-
 // Get Page Source
 
 $browser = new Browser("https://www.google.com");
@@ -9,7 +8,7 @@ $browser->run();
 echo $browser->get_source();
 
 
-// Get Page Source with Defaults
+// Get Page Source & Using Defaults
 
 $defaults = array(
     'refferer' => 'https://www.google.com',
@@ -25,8 +24,20 @@ $browser->run();
 echo $browser->get_source();
 
 
-// Download File to Folder
+// Download File
 
 $browser = new Browser("https://www.google.com.tr/images/srpr/logo11w.png");
 $browser->save_to_file("files/logo.png");
 $browser->run();
+
+
+// Custom Headers
+
+$headers = array(
+    'Content-Type: application/x-www-form-urlencoded',
+    'Authorization: Basic '. base64_encode("username:password")
+);
+$browser = new Browser("http://example.dev/index.php");
+$browser->set_headers($headers);
+$browser->run();
+echo $browser->get_source();
