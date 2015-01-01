@@ -30,6 +30,7 @@ class Browser {
     private $headers = array();
     private $auto_redirect = true;
     private $cookie_file = null;
+    private $cookie = null;
     private $cert_file = null;
     private $save_to_file = null;
 
@@ -46,6 +47,7 @@ class Browser {
             $this->timeout = (isset($defaults['timeout']) ? $defaults['timeout'] : null);
             $this->headers = (isset($defaults['headers']) ? $defaults['headers'] : null);
             $this->cookie_file = (isset($defaults['cookie_file']) ? $defaults['cookie_file'] : null);
+            $this->cookie = (isset($defaults['cookie']) ? $defaults['cookie'] : null);
             $this->cert_file = (isset($defaults['cert_file']) ? $defaults['cert_file'] : null);
         }
 
@@ -87,6 +89,10 @@ class Browser {
         $this->cookie_file = $filename;
     }
 
+    public function set_cookie($cookie) {
+        $this->cookie = $cookie;
+    }
+
     public function cert_file($filename) {
         $this->cert_file = $filename;
     }
@@ -111,6 +117,10 @@ class Browser {
 
         if ($this->headers !== null) {
             curl_setopt($this->ch, CURLOPT_HTTPHEADER, $this->headers);
+        }
+
+        if ($this->cookie !== null) {
+            curl_setopt($this->ch, CURLOPT_COOKIE, $this->cookie);
         }
 
         if (is_file($this->cert_file)) {
