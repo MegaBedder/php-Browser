@@ -27,7 +27,7 @@ echo $browser->get_source();
 | `auto_redirect($option = true)` | Set auto redirect option. |
 | `set_cookie_file($filename = "/tmp/Browser.tmp")` | Set cookie file. |
 | `set_cookie_data($data = "PHPSESSID=1a2b3c4d5e6f7g8h; COLOR=Pink")` | Set cookie data. |
-| `set_cert_file($filename = "ca-bundle.crt")` | Set bundle of certificates file. |
+| `set_cert_file($filename = "ca-bundle.crt")` | Set bundle of cert file. |
 | `set_proxy($adress = null, $username = null, $password = null)` | Set proxy. |
 | `post($data = null)` | Set post data. |
 | `save_to_file($filename = null)` | Save data to file. |
