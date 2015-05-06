@@ -78,7 +78,7 @@ $browser->run();
 #echo $browser->get_source();
 
 
-// Set Proxy (/w Auth)
+// Set Proxy (w/ Auth)
 $browser = new Browser("http://myip.se");
 $browser->set_proxy("1.2.3.4:8080", "username", "password");
 $browser->run();
