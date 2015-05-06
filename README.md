@@ -1,7 +1,7 @@
 php-Browser
 =============
 
-Featured and simple HTTP request class.
+Featured and simple HTTP request class. Using curl library.
 
 #### Using
 
