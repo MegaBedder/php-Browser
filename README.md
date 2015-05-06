@@ -34,7 +34,7 @@ echo $browser->get_source();
 | `set_cookie_data($data = "Browser=Firefox; COLOR=Pink")` | Set cookie data. |
 | `set_cert_file($filename = "ca-bundle.crt")` | Set bundle of cert file. |
 | `set_proxy($adress, $username = null, $password = null)` | Set proxy. |
-| `post($data = null)` | Post data. |
+| `post($data)` | Post data. |
 | `save_to_file($filename = null)` | Save data to file. |
 | `run()` | Run HTTP request. |
 | `get_source()` | Get request source code. |
