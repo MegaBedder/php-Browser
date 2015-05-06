@@ -6,7 +6,7 @@ Featured and simple HTTP request class.
 #### Requirements
 
 - PHP 5.3+
-- PHP Curl library
+- PHP cURL library
 
 #### Using
 
