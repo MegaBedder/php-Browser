@@ -16,7 +16,7 @@ $defaults = array(
     'user_agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10; rv:33.0) Gecko/20100101 Firefox/33.0',
     'timeout' => 20,
     'cookie_file' => 'cookie.txt',
-    'cookie' => 'PHPSESSID=1a2b3c4d5e6f7g8h; BROWSER=Firefox; COLOR=Pink'
+    'cookie_data' => 'PHPSESSID=1a2b3c4d5e6f7g8h; BROWSER=Firefox; COLOR=Pink'
 );
 
 $browser = new Browser("http://example.dev/login.php", $defaults);
