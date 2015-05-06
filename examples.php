@@ -72,6 +72,7 @@ $browser->run();
 
 
 // Set Proxy
+
 $browser = new Browser("http://myip.se");
 $browser->set_proxy("1.2.3.4:8080");
 $browser->run();
@@ -79,6 +80,7 @@ $browser->run();
 
 
 // Set Proxy (w/ Auth)
+
 $browser = new Browser("http://myip.se");
 $browser->set_proxy("1.2.3.4:8080", "username", "password");
 $browser->run();
