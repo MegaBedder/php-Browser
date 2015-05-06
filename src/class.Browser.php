@@ -25,14 +25,17 @@ class Browser {
     private $source = null;
     private $info = null;
     private $refferer = null;
-    private $user_agent = "Browser/0.1 (http://github.com/iamdual/php-browser)";
+    private $user_agent = "Browser/1.0 (http://github.com/iamdual/php-browser)";
     private $timeout = 10;
     private $headers = array();
     private $auto_redirect = true;
     private $cookie_file = null;
-    private $cookie = null;
+    private $cookie_data = null;
     private $cert_file = null;
-    private $save_to_file = null;
+    private $proxy_adress = null;
+    private $proxy_username = null;
+    private $proxy_password = null;
+    private $filename = null;
 
     function __construct($url, $defaults = null) {
 
@@ -47,15 +50,18 @@ class Browser {
             $this->timeout = (isset($defaults['timeout']) ? $defaults['timeout'] : null);
             $this->headers = (isset($defaults['headers']) ? $defaults['headers'] : null);
             $this->cookie_file = (isset($defaults['cookie_file']) ? $defaults['cookie_file'] : null);
-            $this->cookie = (isset($defaults['cookie']) ? $defaults['cookie'] : null);
+            $this->cookie_data = (isset($defaults['cookie_data']) ? $defaults['cookie_data'] : null);
             $this->cert_file = (isset($defaults['cert_file']) ? $defaults['cert_file'] : null);
+            $this->proxy_adress = (isset($defaults['proxy_adress']) ? $defaults['proxy_adress'] : null);
+            $this->proxy_username = (isset($defaults['proxy_username']) ? $defaults['proxy_username'] : null);
+            $this->proxy_password = (isset($defaults['proxy_password']) ? $defaults['proxy_password'] : null);
         }
 
-        if ($this->cookie_file === null) {
-            $this->cookie_file = sys_get_temp_dir() . "/Browser.tmp";
+        if ($this->cookie_file === null || ! is_file($this->cookie_file)) {
+            $this->cookie_file = sys_get_temp_dir() . "/BrowserCookie.txt";
         }
 
-        if ($this->cert_file === null) {
+        if ($this->cert_file === null || ! is_file($this->cert_file)) {
             $this->cert_file = dirname(__FILE__) . "/ca-bundle.crt";
         }
 
@@ -65,12 +71,12 @@ class Browser {
 
     }
 
-    public function set_refferer($refferer_url) {
-        $this->refferer = $refferer_url;
+    public function set_refferer($url) {
+        $this->refferer = $url;
     }
 
-    public function set_user_agent($user_agent) {
-        $this->user_agent = $user_agent;
+    public function set_user_agent($string) {
+        $this->user_agent = $string;
     }
 
     public function set_timeout($timeout) {
@@ -81,24 +87,30 @@ class Browser {
         $this->headers = $headers;
     }
 
-    public function auto_redirect($option) {
+    public function set_auto_redirect($option) {
         $this->auto_redirect = ($option ===  false ? $option : true);
     }
 
-    public function cookie_file($filename) {
+    public function set_cookie_file($filename) {
         $this->cookie_file = $filename;
     }
 
-    public function set_cookie($cookie) {
-        $this->cookie = $cookie;
+    public function set_cookie_data($data) {
+        $this->cookie_data = $data;
     }
 
-    public function cert_file($filename) {
+    public function set_cert_file($filename) {
         $this->cert_file = $filename;
     }
 
+    public function set_proxy($adress, $username = null, $password = null) {
+        $this->proxy_adress = $adress;
+        $this->proxy_username = $username;
+        $this->proxy_password = $password;
+    }
+
     public function save_to_file($filename) {
-        $this->save_to_file = $filename;
+        $this->filename = $filename;
     }
 
     public function post($data) {
@@ -119,8 +131,17 @@ class Browser {
             curl_setopt($this->ch, CURLOPT_HTTPHEADER, $this->headers);
         }
 
-        if ($this->cookie !== null) {
-            curl_setopt($this->ch, CURLOPT_COOKIE, $this->cookie);
+        if ($this->cookie_data !== null) {
+            curl_setopt($this->ch, CURLOPT_COOKIE, $this->cookie_data);
+        }
+
+        if (isset($this->proxy_adress)) {
+            curl_setopt($this->ch, CURLOPT_PROXY, $this->proxy_adress);
+
+            if ($this->proxy_username !== null && $this->proxy_password !== null) {
+                $proxy_auth = $this->proxy_username . ":" . $this->proxy_password;
+                curl_setopt($this->ch, CURLOPT_PROXYUSERPWD, $proxy_auth);
+            }
         }
 
         if (is_file($this->cert_file)) {
@@ -140,17 +161,17 @@ class Browser {
         $this->source = curl_exec($this->ch);
         $this->info = curl_getinfo($this->ch);
 
-        if ($this->save_to_file !== null) {
+        if ($this->filename !== null) {
 
-            if (!file_exists(dirname($this->save_to_file))) {
-                mkdir(dirname($this->save_to_file), 0777, true);
+            if (!file_exists(dirname($this->filename))) {
+                mkdir(dirname($this->filename), 0777, true);
             }
 
-            if (!file_exists($this->save_to_file)) {
-                touch($this->save_to_file);
+            if (!file_exists($this->filename)) {
+                touch($this->filename);
             }
 
-            $file = fopen($this->save_to_file, "w+");
+            $file = fopen($this->filename, "w+");
             fputs($file, $this->source);
             fclose($file);
         }
@@ -165,7 +186,9 @@ class Browser {
     }
 
     public function clear_cookie() {
-        return @unlink($this->cookie_file);
+        $file = fopen($this->cookie_file, "w+");
+        fwrite($file , "");
+        fclose($file);
     }
 
     function __destruct() {

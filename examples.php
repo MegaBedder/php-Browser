@@ -66,6 +66,20 @@ $browser->run();
 // Set Custom Cookie
 
 $browser = new Browser("https://www.google.com");
-$browser->set_cookie("PHPSESSID=1a2b3c4d5e6f7g8h; BROWSER=Firefox; COLOR=Pink");
+$browser->set_cookie_data("PHPSESSID=1a2b3c4d5e6f7g8h; BROWSER=Firefox; COLOR=Pink");
 $browser->run();
 # echo $browser->get_source();
+
+
+// Set Proxy
+$browser = new Browser("http://myip.se");
+$browser->set_proxy("1.2.3.4:8080");
+$browser->run();
+#echo $browser->get_source();
+
+
+// Set Proxy (/w Auth)
+$browser = new Browser("http://myip.se");
+$browser->set_proxy("1.2.3.4:8080", "username", "password");
+$browser->run();
+#echo $browser->get_source();
