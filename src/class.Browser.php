@@ -123,16 +123,16 @@ class Browser {
         curl_setopt($this->ch, CURLOPT_COOKIEJAR, $this->cookie_file);
         curl_setopt($this->ch, CURLOPT_COOKIEFILE, $this->cookie_file);
 
-        if ($this->refferer !== null) {
-            curl_setopt($this->ch, CURLOPT_REFERER, $this->refferer);
+        if ($this->cookie_data !== null) {
+            curl_setopt($this->ch, CURLOPT_COOKIE, $this->cookie_data);
         }
 
         if ($this->headers !== null) {
             curl_setopt($this->ch, CURLOPT_HTTPHEADER, $this->headers);
         }
 
-        if ($this->cookie_data !== null) {
-            curl_setopt($this->ch, CURLOPT_COOKIE, $this->cookie_data);
+        if ($this->refferer !== null) {
+            curl_setopt($this->ch, CURLOPT_REFERER, $this->refferer);
         }
 
         if (isset($this->proxy_adress)) {
@@ -148,14 +148,14 @@ class Browser {
             curl_setopt($this->ch, CURLOPT_CAINFO, $this->cert_file);
         }
 
-        if ($this->post !== null) {
-            curl_setopt($this->ch, CURLOPT_POST, 1);
-            curl_setopt($this->ch, CURLOPT_POSTFIELDS, $this->post);
-        }
-
         if ($this->auto_redirect === true) {
             curl_setopt($this->ch, CURLOPT_AUTOREFERER, true);
             curl_setopt($this->ch, CURLOPT_FOLLOWLOCATION, true);
+        }
+
+        if ($this->post !== null) {
+            curl_setopt($this->ch, CURLOPT_POST, 1);
+            curl_setopt($this->ch, CURLOPT_POSTFIELDS, $this->post);
         }
 
         $this->source = curl_exec($this->ch);
