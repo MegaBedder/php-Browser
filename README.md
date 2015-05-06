@@ -29,7 +29,7 @@ echo $browser->get_source();
 | `set_cookie_data($data = "PHPSESSID=1a2b3c4d5e6f7g8h; COLOR=Pink")` | Set cookie data. |
 | `set_cert_file($filename = "ca-bundle.crt")` | Set bundle of cert file. |
 | `set_proxy($adress = null, $username = null, $password = null)` | Set proxy. |
-| `post($data = null)` | Set post data. |
+| `post($data = null)` | Post data. |
 | `save_to_file($filename = null)` | Save data to file. |
 | `run()` | Run HTTP request. |
 | `get_source()` | Get request source code. |
