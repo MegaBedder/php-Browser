@@ -25,15 +25,15 @@ echo $browser->get_source();
 
 | Name & Defaults | Description | 
 | ----------- | ----------- |
-| `set_refferer($url = null)` | Set refferer url. |
+| `set_refferer($url)` | Set refferer url. |
 | `set_user_agent($string = "Browser/0.1...")` | Set user agent string. |
 | `set_timeout($timeout = 10)` | Set timeout. |
 | `set_headers($headers = array())` | Set headers with array. |
 | `set_auto_redirect($option = true)` | Set auto redirect option. |
 | `set_cookie_file($filename = "/tmp/Browser.tmp")` | Set cookie file. |
-| `set_cookie_data($data = "PHPSESSID=1a2b3c4d5e6f7g8h; COLOR=Pink")` | Set cookie data. |
+| `set_cookie_data($data = "Browser=Firefox; COLOR=Pink")` | Set cookie data. |
 | `set_cert_file($filename = "ca-bundle.crt")` | Set bundle of cert file. |
-| `set_proxy($adress = null, $username = null, $password = null)` | Set proxy. |
+| `set_proxy($adress, $username = null, $password = null)` | Set proxy. |
 | `post($data = null)` | Post data. |
 | `save_to_file($filename = null)` | Save data to file. |
 | `run()` | Run HTTP request. |
