@@ -51,7 +51,7 @@ $defaults = array(
     'user_agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10; rv:33.0) Gecko/20100101 Firefox/33.0',
     'timeout' => 20, 
     'cookie_file' => '/example/path/BrowserCookie.txt',
-    'cookie' => 'PHPSESSID=1a2b3c4d5e6f7g8h; BROWSER=Firefox; COLOR=Pink'
+    'cookie_data' => 'PHPSESSID=1a2b3c4d5e6f7g8h; BROWSER=Firefox; COLOR=Pink'
     'cert_file' => '/example/path/ca-bundle.crt',
     'headers' => array('Content-Type: application/x-www-form-urlencoded', 'Foo: Bar'),
     'proxy_adress' => '1.2.3.4:8080',
