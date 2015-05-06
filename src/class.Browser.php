@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright 2014, Ekin K. <dual@openmailbox.org>
+ * Copyright 2015, Ekin K. <dual@openmailbox.org>
  *
  * Documentation:
  * https://github.com/iamdual/php-browser
