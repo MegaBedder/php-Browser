@@ -34,7 +34,7 @@ echo $browser->get_source();
 | `cookie_data($data)` | Set cookie data. |
 | `cert_file($filename = "/src/ca-bundle.crt")` | Set bundle of cert file. |
 | `proxy($adress, $username = null, $password = null)` | Set proxy. |
-| `post($data)` | Post data. |
+| `post($data)` | Set post data. |
 | `save_to_file($filename)` | Save data to file. |
 | `run()` | Run HTTP request. |
 | `get_source()` | Get request source code. |
