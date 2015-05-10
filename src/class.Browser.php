@@ -162,8 +162,8 @@ class Browser {
             curl_setopt($this->ch, CURLOPT_FOLLOWLOCATION, true);
         }
 
-        if ($this->auth_username !== null && $this->auth_username !== null) {
-            $auth = $this->auth_username . ":" . $this->auth_username;
+        if ($this->auth_username !== null && $this->auth_password !== null) {
+            $auth = $this->auth_username . ":" . $this->auth_password;
             curl_setopt($this->ch, CURLOPT_USERPWD, $auth);
         }
 
