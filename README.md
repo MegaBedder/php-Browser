@@ -32,6 +32,7 @@ echo $browser->get_source();
 | `auto_redirect($option = true)` | Set auto redirect option. |
 | `cookie_file($filename = "/tmp/BrowserCookie.txt")` | Set cookie file. |
 | `cookie_data($data)` | Set cookie data. |
+| `auth($username = null, $password = null)` | Set authorizing info. |
 | `cert_file($filename = "/src/ca-bundle.crt")` | Set bundle of cert file. |
 | `proxy($adress, $username = null, $password = null)` | Set proxy. |
 | `post($data)` | Set post data. |
@@ -52,6 +53,8 @@ $defaults = array(
     'timeout' => 20, 
     'cookie_file' => '/example/path/BrowserCookie.txt',
     'cookie_data' => 'PHPSESSID=1a2b3c4d5e6f7g8h; BROWSER=Firefox; COLOR=Pink'
+    'auth_username' => null,
+    'auth_password' => null,
     'cert_file' => '/example/path/ca-bundle.crt',
     'headers' => array('Content-Type: application/x-www-form-urlencoded', 'Foo: Bar'),
     'proxy_adress' => '1.2.3.4:8080',

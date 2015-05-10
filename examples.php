@@ -71,6 +71,14 @@ $browser->run();
 # echo $browser->get_source();
 
 
+// Set HTTP/FTP Authorizing Info
+
+$browser = new Browser("http://example.com");
+$browser->auth("username", "password");
+$browser->run();
+#echo $browser->get_source();
+
+
 // Set Proxy
 
 $browser = new Browser("http://myip.se");

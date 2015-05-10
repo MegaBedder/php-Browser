@@ -29,6 +29,8 @@ class Browser {
     private $timeout = 10;
     private $headers = array();
     private $auto_redirect = true;
+    private $auth_username = null;
+    private $auth_password = null;
     private $cookie_file = null;
     private $cookie_data = null;
     private $cert_file = null;
@@ -51,6 +53,8 @@ class Browser {
             $this->headers = (isset($defaults['headers']) ? $defaults['headers'] : null);
             $this->cookie_file = (isset($defaults['cookie_file']) ? $defaults['cookie_file'] : null);
             $this->cookie_data = (isset($defaults['cookie_data']) ? $defaults['cookie_data'] : null);
+            $this->auth_username = (isset($defaults['auth_username']) ? $defaults['auth_username'] : null);
+            $this->auth_password = (isset($defaults['auth_password']) ? $defaults['auth_password'] : null);
             $this->cert_file = (isset($defaults['cert_file']) ? $defaults['cert_file'] : null);
             $this->proxy_adress = (isset($defaults['proxy_adress']) ? $defaults['proxy_adress'] : null);
             $this->proxy_username = (isset($defaults['proxy_username']) ? $defaults['proxy_username'] : null);
@@ -89,6 +93,11 @@ class Browser {
 
     public function auto_redirect($option) {
         $this->auto_redirect = ($option ===  false ? $option : true);
+    }
+
+    public function auth($username = null, $password = null) {
+        $this->proxy_username = $username;
+        $this->proxy_password = $password;
     }
 
     public function cookie_file($filename) {
@@ -151,6 +160,11 @@ class Browser {
         if ($this->auto_redirect === true) {
             curl_setopt($this->ch, CURLOPT_AUTOREFERER, true);
             curl_setopt($this->ch, CURLOPT_FOLLOWLOCATION, true);
+        }
+
+        if ($this->auth_username !== null && $this->auth_username !== null) {
+            $auth = $this->auth_username . ":" . $this->auth_username;
+            curl_setopt($this->ch, CURLOPT_USERPWD, $auth);
         }
 
         if ($this->post !== null) {
