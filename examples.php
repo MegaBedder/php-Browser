@@ -42,7 +42,7 @@ $headers = array(
 );
 
 $browser = new Browser("http://example.dev/index.php");
-$browser->set_headers($headers);
+$browser->headers($headers);
 $browser->run();
 # echo $browser->get_source();
 
@@ -50,7 +50,7 @@ $browser->run();
 // Set Custom User Agent
 
 $browser = new Browser("https://www.google.com");
-$browser->set_user_agent("Example User Agent");
+$browser->user_agent("Example User Agent");
 $browser->run();
 # echo $browser->get_source();
 
@@ -58,7 +58,7 @@ $browser->run();
 // Set Custom Timeout
 
 $browser = new Browser("https://www.google.com");
-$browser->set_timeout(1);
+$browser->timeout(1);
 $browser->run();
 # echo $browser->get_source();
 
@@ -66,7 +66,7 @@ $browser->run();
 // Set Custom Cookie
 
 $browser = new Browser("https://www.google.com");
-$browser->set_cookie_data("PHPSESSID=1a2b3c4d5e6f7g8h; BROWSER=Firefox; COLOR=Pink");
+$browser->cookie_data("PHPSESSID=1a2b3c4d5e6f7g8h; BROWSER=Firefox; COLOR=Pink");
 $browser->run();
 # echo $browser->get_source();
 
@@ -74,7 +74,7 @@ $browser->run();
 // Set Proxy
 
 $browser = new Browser("http://myip.se");
-$browser->set_proxy("1.2.3.4:8080");
+$browser->proxy("1.2.3.4:8080");
 $browser->run();
 #echo $browser->get_source();
 
@@ -82,6 +82,6 @@ $browser->run();
 // Set Proxy (w/ Auth)
 
 $browser = new Browser("http://myip.se");
-$browser->set_proxy("1.2.3.4:8080", "username", "password");
+$browser->proxy("1.2.3.4:8080", "username", "password");
 $browser->run();
 #echo $browser->get_source();

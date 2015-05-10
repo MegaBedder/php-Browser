@@ -25,15 +25,15 @@ echo $browser->get_source();
 
 | Name & Defaults | Description | 
 | ----------- | ----------- |
-| `set_refferer($url)` | Set refferer url. |
-| `set_user_agent($string = "Browser/0.1...")` | Set user agent string. |
-| `set_timeout($timeout = 10)` | Set timeout. |
-| `set_headers($headers = array())` | Set headers with array. |
-| `set_auto_redirect($option = true)` | Set auto redirect option. |
-| `set_cookie_file($filename = "/tmp/BrowserCookie.txt")` | Set cookie file. |
-| `set_cookie_data($data)` | Set cookie data. |
-| `set_cert_file($filename = "/src/ca-bundle.crt")` | Set bundle of cert file. |
-| `set_proxy($adress, $username = null, $password = null)` | Set proxy. |
+| `refferer($url)` | Set refferer url. |
+| `user_agent($string = "Browser/0.1...")` | Set user agent string. |
+| `timeout($timeout = 10)` | Set timeout. |
+| `headers($headers = array())` | Set headers with array. |
+| `auto_redirect($option = true)` | Set auto redirect option. |
+| `cookie_file($filename = "/tmp/BrowserCookie.txt")` | Set cookie file. |
+| `cookie_data($data)` | Set cookie data. |
+| `cert_file($filename = "/src/ca-bundle.crt")` | Set bundle of cert file. |
+| `proxy($adress, $username = null, $password = null)` | Set proxy. |
 | `post($data)` | Post data. |
 | `save_to_file($filename)` | Save data to file. |
 | `run()` | Run HTTP request. |

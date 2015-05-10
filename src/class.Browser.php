@@ -71,39 +71,39 @@ class Browser {
 
     }
 
-    public function set_refferer($url) {
+    public function refferer($url) {
         $this->refferer = $url;
     }
 
-    public function set_user_agent($string) {
+    public function user_agent($string) {
         $this->user_agent = $string;
     }
 
-    public function set_timeout($timeout) {
+    public function timeout($timeout) {
         $this->timeout = $timeout;
     }
 
-    public function set_headers($headers) {
+    public function headers($headers) {
         $this->headers = $headers;
     }
 
-    public function set_auto_redirect($option) {
+    public function auto_redirect($option) {
         $this->auto_redirect = ($option ===  false ? $option : true);
     }
 
-    public function set_cookie_file($filename) {
+    public function cookie_file($filename) {
         $this->cookie_file = $filename;
     }
 
-    public function set_cookie_data($data) {
+    public function cookie_data($data) {
         $this->cookie_data = $data;
     }
 
-    public function set_cert_file($filename) {
+    public function cert_file($filename) {
         $this->cert_file = $filename;
     }
 
-    public function set_proxy($adress, $username = null, $password = null) {
+    public function proxy($adress, $username = null, $password = null) {
         $this->proxy_adress = $adress;
         $this->proxy_username = $username;
         $this->proxy_password = $password;
