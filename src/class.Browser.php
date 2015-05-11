@@ -96,8 +96,8 @@ class Browser {
     }
 
     public function auth($username = null, $password = null) {
-        $this->proxy_username = $username;
-        $this->proxy_password = $password;
+        $this->auth_username = $username;
+        $this->auth_password = $password;
     }
 
     public function cookie_file($filename) {
