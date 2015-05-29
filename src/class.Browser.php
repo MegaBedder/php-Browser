@@ -189,6 +189,12 @@ class Browser {
             fputs($file, $this->source);
             fclose($file);
         }
+        
+        if ($this->info["http_code"] !== 200) {
+            return false;
+        }
+
+        return true;
     }
 
     public function get_source() {
