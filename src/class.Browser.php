@@ -123,6 +123,9 @@ class Browser {
     }
 
     public function post($data) {
+        if (is_array($data)) {
+            $data = http_build_query($data);
+        }
         $this->post = $data;
     }
 
