@@ -20,7 +20,7 @@ $defaults = array(
 );
 
 $browser = new Browser("http://example.dev/login.php", $defaults);
-$browser->post("username=admin&password=example");
+$browser->post(array("username" => "admin", "password" => "example");
 $browser->run();
 $browser = new Browser("http://example.dev/search.php", $defaults);
 $browser->run();
