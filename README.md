@@ -14,7 +14,7 @@ Featured and simple HTTP request class.
 require("class.Browser.php");
 
 $browser = new Browser("http://example.dev/login.php");
-$browser->post("username=admin&password=example");
+$browser->post(array("username" => "admin", "password" => "example"));
 $browser->run();
 $browser = new Browser("http://example.dev/myaccount.php");
 $browser->run();
@@ -25,18 +25,18 @@ echo $browser->get_source();
 
 | Name & Defaults | Description | 
 | ----------- | ----------- |
-| `refferer($url)` | Set refferer url. |
+| `refferer($url = "")` | Set refferer url. |
 | `user_agent($string = "Browser/0.1...")` | Set user agent string. |
 | `timeout($timeout = 10)` | Set timeout. |
 | `headers($headers = array())` | Set headers with array. |
 | `auto_redirect($option = true)` | Set auto redirect option. |
 | `cookie_file($filename = "/tmp/BrowserCookie.txt")` | Set cookie file. |
-| `cookie_data($data)` | Set cookie data. |
+| `cookie_data($data = "")` | Set cookie data. |
 | `auth($username = null, $password = null)` | Set authorizing info. |
 | `cert_file($filename = "/src/ca-bundle.crt")` | Set bundle of cert file. |
-| `proxy($adress, $username = null, $password = null)` | Set proxy. |
-| `post($data)` | Set post data. |
-| `save_to_file($filename)` | Save data to file. |
+| `proxy($adress = "", $username = null, $password = null)` | Set proxy. |
+| `post($data = array())` | Set post data. |
+| `save_to_file($filename = "")` | Save data to file. |
 | `run()` | Run HTTP request. |
 | `get_source()` | Get request source code. |
 | `get_info()` | Get request info in array(). |
